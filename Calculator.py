@@ -77,31 +77,27 @@ def multiplication():
     calculation.append('*')
     display['text'] = '*'
 def equation():
-    calculation.append(display['text']) 
-    for i in calculation():
-        print(str(i)) 
+    pass  
 
 
 ### Tkinter Display  ###
-        
-# Setup the window 
-the_window = Tk()
-the_window.title("Calculator") 
-calc_font = ('Arial', 26)
-
-# Set some variables for easy grid adjustment 
-x_button_padding = 10
-y_button_padding = 10
 
 # Set cosmetic variables for easy adjustment
-button_colour = ''
-calculator_color = ''
-display_color = ''
+calculator_colour = 'white smoke'
+display_colour = 'white smoke'
+button_colour = 'snow'
+button_style = 'ridge'
+
+# Setup the window 
+the_window = Tk()
+the_window.title("Calculator")
+the_window.configure(background = calculator_colour) 
+calc_font = ('Arial', 26)
 
 # Create the display
 display = Label(the_window, text = '0',
                 height = 2, width = 4,
-                font = calc_font)
+                font = calc_font, background = display_colour) 
 display.grid(row = 0, column = 3)
 
 # Create a function for easy button making
@@ -109,7 +105,8 @@ def create_calc_button(digit, row_no, column_no, x_padding,
                        y_padding, command_name):
     number_digit = Button(the_window, text = str(digit),
                           height = 2, width = 4,
-                          font = calc_font, command = command_name)
+                          font = calc_font, command = command_name,
+                          background = button_colour, relief = button_style)    
     number_digit.grid(row = row_no, column = column_no,
                       padx = x_padding, pady = y_padding)
 
@@ -137,45 +134,51 @@ create_calc_button(0, 4, 1, 10, 10, no_0)
 
 
 # Create the other buttons (+, -, *, /, =, c,)
-# *WORK OUT A WAY TO AUTOMATE BUTTON CREATION FOR THESE 
 plus = Button(the_window, text = '+',
               height = 2, width = 4,
-              font = calc_font, command = addition)
+              font = calc_font, command = addition,
+              background = button_colour, relief = button_style)
 plus.grid(row = 1, column = 3,
           padx = 10, pady = 10)
 
 minus = Button(the_window, text = '-',
               height = 2, width = 4,
-              font = calc_font, command = subtraction)
+              font = calc_font, command = subtraction,
+              background = button_colour, relief = button_style) 
 minus.grid(row = 2, column = 3,
            padx = 10, pady = 10)
 
 multiply = Button(the_window, text = '*',
               height = 2, width = 4,
-              font = calc_font, command = multiplication)
+              font = calc_font, command = multiplication,
+              background = button_colour, relief = button_style)  
 multiply.grid(row = 3, column = 3,
               padx = 10, pady = 10)
 
 divide = Button(the_window, text = '/',
               height = 2, width = 4,
-              font = calc_font, command = dividation) 
+              font = calc_font, command = dividation,
+              background = button_colour, relief = button_style) 
 divide.grid(row = 4, column = 3,
             padx = 10, pady = 10)
 
 equate = Button(the_window, text = '=',
               height = 2, width = 4,
-              font = calc_font, command = equation)
+              font = calc_font, command = equation,
+              background = button_colour, relief = button_style) 
 equate.grid(row = 4, column = 2,
             padx = 10, pady = 10)
 
 reset = Button(the_window, text = 'c',
                height = 2, width = 4,
-               font = calc_font, command = clear)
+               font = calc_font, command = clear,
+               background = button_colour, relief = button_style) 
 reset.grid(row = 4, column = 0,
            padx = 10, pady = 10)
 
 # Start the events loop 
 mainloop()
+
 
 
 
