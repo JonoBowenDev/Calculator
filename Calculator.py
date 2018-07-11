@@ -6,63 +6,70 @@ from tkinter import *
 # The calculation, created by the user's input
 calculation = ''
 
-# Function to change the calculation string into a completeable equation
-def evaluate():
-    pass 
-    
 # What happens when each button is pressed
 # The number buttons 
 def no_1():
+    equate.configure(state = NORMAL)  
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/': 
-        display['text'] = '1'
+        display['text'] = '1' 
     else:
         display['text'] = display['text'] + '1'
 def no_2():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '2'
     else:
         display['text'] = display['text'] + '2'
 def no_3():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '3'
     else:
         display['text'] = display['text'] + '3'
 def no_4():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '4'
     else:
         display['text'] = display['text'] + '4'
 def no_5():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '5'
     else:
         display['text'] = display['text'] + '5'
 def no_6():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '6'
     else:
         display['text'] = display['text'] + '6'
 def no_7():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '7'
     else:
         display['text'] = display['text'] + '7'
 def no_8():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '8'
     else:
         display['text'] = display['text'] + '8'
 def no_9():
+    equate.configure(state = NORMAL)
     if display['text'] == '0' or display['text'] == '+' or display['text'] == '-' or display['text'] == '*' or display['text'] == '/':
         display['text'] = '9'
     else:
         display['text'] = display['text'] + '9'
 def no_0():
+    equate.configure(state = NORMAL)
     display['text'] = display['text'] + '0'
 def clear():
     global calculation
     display['text'] = '0'
-    calculation = '' 
+    calculation = ''
+    equate.configure(state = DISABLED) 
 
 # The +, -, %, x and = buttons 
 def addition():
@@ -84,7 +91,9 @@ def multiplication():
 def equation():
     global calculation
     calculation = calculation + display['text']
-    print(calculation)
+    display['text'] = str(eval(calculation))
+    calculation = ''  
+    equate.configure(state = DISABLED) 
     
 
 ### Tkinter Display  ###
@@ -172,7 +181,8 @@ divide.grid(row = 4, column = 3,
 equate = Button(the_window, text = '=',
               height = 2, width = 4,
               font = calc_font, command = equation,
-              background = button_colour, relief = button_style) 
+              background = button_colour, relief = button_style,
+              state = DISABLED) 
 equate.grid(row = 4, column = 2,
             padx = 10, pady = 10)
 
@@ -185,8 +195,6 @@ reset.grid(row = 4, column = 0,
 
 # Start the events loop 
 mainloop()
-
-
 
 
 
