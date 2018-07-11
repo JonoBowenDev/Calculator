@@ -6,6 +6,10 @@ from tkinter import *
 # The calculation, created by the user's input
 calculation = ''
 
+# Function to change the calculation string into a completeable equation
+def evaluate():
+    pass 
+    
 # What happens when each button is pressed
 # The number buttons 
 def no_1():
@@ -56,29 +60,32 @@ def no_9():
 def no_0():
     display['text'] = display['text'] + '0'
 def clear():
+    global calculation
     display['text'] = '0'
-    calculation = []
+    calculation = '' 
 
 # The +, -, %, x and = buttons 
 def addition():
-    calculation.append(display['text'])
-    calculation.append('+')
+    global calculation
+    calculation = calculation + display['text'] + '+'
     display['text'] = '+' 
 def subtraction():
-    calculation.append(display['text'])
-    calculation.append('-')
+    global calculation
+    calculation = calculation + display['text'] + '-'
     display['text'] = '-'
 def dividation():
-    calculation.append(display['text'])
-    calculation.append('/')
+    global calculation
+    calculation = calculation + display['text'] + '/'
     display['text'] = '/'
 def multiplication(): 
-    calculation.append(display['text'])
-    calculation.append('*')
+    global calculation
+    calculation = calculation + display['text'] + '*'
     display['text'] = '*'
 def equation():
-    pass  
-
+    global calculation
+    calculation = calculation + display['text']
+    print(calculation)
+    
 
 ### Tkinter Display  ###
 
@@ -178,9 +185,6 @@ reset.grid(row = 4, column = 0,
 
 # Start the events loop 
 mainloop()
-
-
-
 
 
 
