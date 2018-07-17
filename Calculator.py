@@ -114,7 +114,8 @@ calc_font = ('Arial', 26)
 display = Label(the_window, text = '0',
                 height = 2, width = 4,
                 font = calc_font, background = display_colour) 
-display.grid(row = 0, column = 3)
+display.grid(row = 0, column = 0,
+             columnspan = 4, sticky = 'WE') 
 
 # Create a function for easy button making
 def create_calc_button(digit, row_no, column_no, x_padding,
@@ -195,6 +196,7 @@ reset.grid(row = 4, column = 0,
 
 # Start the events loop 
 mainloop()
+
 
 
 
